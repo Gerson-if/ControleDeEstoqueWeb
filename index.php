@@ -31,12 +31,12 @@
         .menu:hover {
             background-color: #69c4f0;
             color: #fff;
-            transform: scale(1.1); /* Efeito de escala ao passar o mouse */
+            transform: scale(1.1); /* Efeito de escala ao passar o mouse  responsivo */
         }
     </style>
 </head>
 <body>
-    <div class="grid-container">
+    <div class="grid-container ">
         <a href="nioaque" class="menu" style="background-color: #FFC300;">Nioaque</a>
         <a href="jardim" class="menu" style="background-color: #FF5733;">Jardim</a>
         <a href="bonito" class="menu" style="background-color: #FFC300;">Bonito</a>
