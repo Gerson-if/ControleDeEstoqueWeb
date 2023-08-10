@@ -30,7 +30,7 @@ if ($method === "PUT") {
     $data = json_decode(file_get_contents("php://input"), true);
 
     // Verifica se os campos obrigatórios foram fornecidos
-    if (empty($data["id"]) || empty($data["quantidade"])) {
+    if (empty($data["id"]) ) {
         // Retorna uma resposta com erro 400 (Bad Request) e uma mensagem de erro
         http_response_code(400);
         echo json_encode(array("success" => false, "message" => "Dados incompletos."));

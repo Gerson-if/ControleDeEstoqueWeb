@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
     $data = json_decode(file_get_contents("php://input"), true);
 
     // Verifica se os campos obrigatórios foram fornecidos
-    if (empty($data["nome"]) || empty($data["quantidade"])) {
+    if (empty($data["nome"]) ) {
         echo json_encode(array("success" => false));
         exit;
     }
@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
     $data = json_decode(file_get_contents("php://input"), true);
 
     // Verifica se os campos obrigatórios foram fornecidos
-    if (empty($data["id"]) || empty($data["nome"]) || empty($data["quantidade"])) {
+    if (empty($data["id"]) || empty($data["nome"]) ) {
         echo json_encode(array("success" => false));
         exit;
     }

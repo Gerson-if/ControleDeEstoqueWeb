@@ -44,7 +44,7 @@ function addProduct() {
     const newProductQuantity = parseInt(document.getElementById("newProductQuantity").value, 10);
     const newProductImageURL = document.getElementById("newProductImageURL").value;
 
-    if (!newProductName || isNaN(newProductQuantity) || newProductQuantity <= 0) {
+    if (!newProductName ) {
         alert("Por favor, preencha todos os campos corretamente.");
         return;
     }
@@ -136,7 +136,7 @@ function editProduct() {
     const editProductQuantity = parseInt(document.getElementById("editProductQuantity").value, 10);
     const editProductImageURL = document.getElementById("editProductImageURL").value;
 
-    if (!editProductName || isNaN(editProductQuantity) || editProductQuantity <= 0) {
+    if (!editProductName) {
         alert("Por favor, preencha todos os campos corretamente.");
         return;
     }
