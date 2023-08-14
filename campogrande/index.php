@@ -2,9 +2,11 @@
 <html>
 
 <head>
-    <title>Gerenciador de Produtos</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="stely.css">
+     <title>Gerenciador de Produtos</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+     <link rel="stylesheet" href="stely.css">
 </head>
 
 <body style="background-image: url('fundo3.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; background-color: transparent;">

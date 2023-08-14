@@ -1,6 +1,54 @@
+
+CREATE DATABASE loja;
+
 CREATE TABLE produtos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     quantidade INT NOT NULL,
     imagem VARCHAR(255)
 );
+CREATE TABLE jardim (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    quantidade INT NOT NULL,
+    imagem VARCHAR(255)
+);
+CREATE TABLE maracaju (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    quantidade INT NOT NULL,
+    imagem VARCHAR(255)
+);
+CREATE TABLE bonito (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    quantidade INT NOT NULL,
+    imagem VARCHAR(255)
+);
+CREATE TABLE sidrolandia (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    quantidade INT NOT NULL,
+    imagem VARCHAR(255)
+);
+CREATE TABLE belavista (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    quantidade INT NOT NULL,
+    imagem VARCHAR(255)
+);
+CREATE TABLE anastacio (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    quantidade INT NOT NULL,
+    imagem VARCHAR(255)
+);
+
+CREATE TABLE aquidauana (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    quantidade INT NOT NULL,
+    imagem VARCHAR(255)
+);
+
+

@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "loja3";
+$dbname = "loja";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -22,7 +22,7 @@ header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 // Verifica o método da requisição
 if ($_SERVER["REQUEST_METHOD"] === "GET") {
     // Consulta todos os produtos do banco de dados
-    $sql = "SELECT * FROM produtos";
+    $sql = "SELECT * FROM jardim";
     $result = $conn->query($sql);
 
     $products = array();
@@ -39,13 +39,13 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
     $data = json_decode(file_get_contents("php://input"), true);
 
     // Verifica se os campos obrigatórios foram fornecidos
-    if (empty($data["nome"]) || empty($data["quantidade"])) {
+    if (empty($data["nome"]) ) {
         echo json_encode(array("success" => false));
         exit;
     }
 
     // Insere o novo produto no banco de dados
-    $sql = "INSERT INTO produtos (nome, quantidade, imagem) VALUES ('" . $data["nome"] . "', " . $data["quantidade"] . ", '" . $data["imagem"] . "')";
+    $sql = "INSERT INTO jardim (nome, quantidade, imagem) VALUES ('" . $data["nome"] . "', " . $data["quantidade"] . ", '" . $data["imagem"] . "')";
     if ($conn->query($sql) === TRUE) {
         $data["id"] = $conn->insert_id;
         echo json_encode(array("success" => true, "product" => $data));
@@ -57,13 +57,13 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
     $data = json_decode(file_get_contents("php://input"), true);
 
     // Verifica se os campos obrigatórios foram fornecidos
-    if (empty($data["id"]) || empty($data["nome"]) || empty($data["quantidade"])) {
+    if (empty($data["id"]) || empty($data["nome"]) ) {
         echo json_encode(array("success" => false));
         exit;
     }
 
     // Atualiza o produto no banco de dados
-    $sql = "UPDATE produtos SET nome='" . $data["nome"] . "', quantidade=" . $data["quantidade"] . ", imagem='" . $data["imagem"] . "' WHERE id=" . $data["id"];
+    $sql = "UPDATE jardim SET nome='" . $data["nome"] . "', quantidade=" . $data["quantidade"] . ", imagem='" . $data["imagem"] . "' WHERE id=" . $data["id"];
     if ($conn->query($sql) === TRUE) {
         echo json_encode(array("success" => true));
     } else {
@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
     $ids = implode(",", $data);
 
     // Remove os produtos do banco de dados
-    $sql = "DELETE FROM produtos WHERE id IN ($ids)";
+    $sql = "DELETE FROM jardim WHERE id IN ($ids)";
     if ($conn->query($sql) === TRUE) {
         echo json_encode(array("success" => true));
     } else {

@@ -4,7 +4,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "loja2";
+$dbname = "loja";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -30,7 +30,7 @@ if ($method === "PUT") {
     $data = json_decode(file_get_contents("php://input"), true);
 
     // Verifica se os campos obrigatórios foram fornecidos
-    if (empty($data["id"]) || empty($data["quantidade"])) {
+    if (empty($data["id"]) ) {
         // Retorna uma resposta com erro 400 (Bad Request) e uma mensagem de erro
         http_response_code(400);
         echo json_encode(array("success" => false, "message" => "Dados incompletos."));
@@ -38,7 +38,7 @@ if ($method === "PUT") {
     }
 
     // Atualiza a quantidade do produto no banco de dados
-    $sql = "UPDATE produtos SET quantidade = " . $data["quantidade"] . " WHERE id = " . $data["id"];
+    $sql = "UPDATE maracaju SET quantidade = " . $data["quantidade"] . " WHERE id = " . $data["id"];
     if ($conn->query($sql) === TRUE) {
         // Retorna uma resposta com código 200 (OK) e uma mensagem de sucesso
         http_response_code(200);

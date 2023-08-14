@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Jul-2023 às 04:30
+-- Tempo de geração: 26-Jul-2023 às 04:28
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.1.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `loja6`
+-- Banco de dados: `loja3`
 --
 
 -- --------------------------------------------------------
@@ -39,7 +39,7 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`id`, `nome`, `quantidade`, `imagem`) VALUES
-(1, 'pamonha', 10, '');
+(1, 'chocalate - 200 reias', 78, '');
 
 --
 -- Índices para tabelas despejadas

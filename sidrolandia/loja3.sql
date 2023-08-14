@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `loja2`
+-- Banco de dados: `loja3`
 --
 
 -- --------------------------------------------------------
@@ -39,7 +39,7 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`id`, `nome`, `quantidade`, `imagem`) VALUES
-(1, 'termica', 3, '');
+(1, 'chocalate - 200 reias', 78, '');
 
 --
 -- Índices para tabelas despejadas

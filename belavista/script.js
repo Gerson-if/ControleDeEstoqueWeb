@@ -11,7 +11,7 @@ function editarQuantidadeProduto() {
 
     // Enviar os dados para o servidor através de uma requisição PUT
     $.ajax({
-        url: 'http://localhost/belavista/editar_quantidade_produto.php',
+        url: 'http://localhost/nioaque/editar_quantidade_produto.php',
         type: 'PUT', // Alterado para PUT
         dataType: 'json',
         data: JSON.stringify(data),

@@ -24,11 +24,42 @@ function loadProducts() {
                 const productName = document.createElement("h5");
                 productName.classList.add("card-title");
                 productName.textContent = product.nome;
+            
+                // Crie o elemento quantityContainer
+                const quantityContainer = document.createElement("div");
+                quantityContainer.classList.add("quantity-container");
+
+                const increaseButton = document.createElement("button");
+                increaseButton.textContent = "+";
+                increaseButton.classList.add("quantity-button", "increase-button");
+                increaseButton.addEventListener("click", () => increaseQuantity(product));
+
+                const decreaseButton = document.createElement("button");
+                decreaseButton.textContent = "-";
+                decreaseButton.classList.add("quantity-button", "decrease-button");
+                decreaseButton.addEventListener("click", () => decreaseQuantity(product));
+                
+               
+                // Adicione os botões e a quantidadeDisplay ao quantityContainer
+                quantityContainer.appendChild(decreaseButton);
+               
+                quantityContainer.appendChild(increaseButton);
 
                 const productQuantity = document.createElement("p");
                 productQuantity.classList.add("card-text");
                 productQuantity.textContent = `Quantidade: ${product.quantidade}`;
 
+                cardBody.appendChild(productName);
+                cardBody.appendChild(productQuantity);
+
+                // Adicione o quantityContainer ao cardBody
+                cardBody.appendChild(quantityContainer);
+
+                productCard.appendChild(image);
+                productCard.appendChild(cardBody);
+                productGrid.appendChild(productCard);
+               
+                // metodos raiz
                 cardBody.appendChild(productName);
                 cardBody.appendChild(productQuantity);
                 productCard.appendChild(image);
@@ -44,13 +75,23 @@ function addProduct() {
     const newProductQuantity = parseInt(document.getElementById("newProductQuantity").value, 10);
     const newProductImageURL = document.getElementById("newProductImageURL").value;
 
-    if (!newProductName || isNaN(newProductQuantity) || newProductQuantity <= 0) {
-        alert("Por favor, preencha todos os campos corretamente.");
+    if (!newProductName ) {
+       Swal.fire({
+            icon: 'error',
+            title: 'Erro',
+            text: 'Por favor, preencha todos os campos corretamente.'
+        });
         return;
     }
 
     if (productList.some((product) => product.nome === newProductName)) {
-        alert("Este produto já existe na lista.");
+        
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro',
+            text: 'Este produto já existe na lista.'
+        });
+
         return;
     }
 
@@ -74,7 +115,13 @@ function addProduct() {
                 loadProducts();
                 loadEditFormList();
                 loadRemoveFormList();
-                alert("Produto adicionado com sucesso!");
+                  
+                  // aviso resposivo de sucesso
+                   Swal.fire({
+                    icon: 'success',
+                    title: 'Sucesso',
+                    text: 'Produto adicionado com sucesso!'
+                });
 
                 document.getElementById("newProductName").value = "";
                 document.getElementById("newProductQuantity").value = "";
@@ -82,10 +129,24 @@ function addProduct() {
 
                 $("#addProductModal").modal("hide");
             } else {
-                alert("Erro ao adicionar o produto.");
+
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Erro',
+                    text: 'sucesso'
+                });
             }
         })
-        .catch(error => console.error("Error adding product:", error));
+        // ultima modificação
+     .catch(error => {
+        Swal.fire({
+            icon: 'success',
+            title: 'Sucesso',
+            text: 'sucesso'
+        });
+
+        console.error("Error adding product:", error);
+    });
 }
 
 function loadEditFormList() {
@@ -93,7 +154,7 @@ function loadEditFormList() {
     productListSelect.innerHTML = '<option value="-1">Selecione um produto...</option>';
 
     // Fazer uma chamada de API para obter os dados dos produtos do servidor local
-    fetch('http://localhost/maracaju/database.php')
+    fetch('http://localhost/nioaque/database.php')
       .then(response => response.json())
       .then(data => {
         data.forEach((product) => {
@@ -128,7 +189,13 @@ function editProduct() {
     const productId = parseInt(document.getElementById("productList").value, 10);
 
     if (productId === -1) {
-        alert("Selecione um produto para editar.");
+
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro',
+            text: 'Por favor selecione um produto para editar'
+        });
+
         return;
     }
 
@@ -136,13 +203,24 @@ function editProduct() {
     const editProductQuantity = parseInt(document.getElementById("editProductQuantity").value, 10);
     const editProductImageURL = document.getElementById("editProductImageURL").value;
 
-    if (!editProductName || isNaN(editProductQuantity) || editProductQuantity <= 0) {
-        alert("Por favor, preencha todos os campos corretamente.");
+    if (!editProductName) {
+
+          Swal.fire({
+            icon: 'error',
+            title: 'Erro',
+            text: 'Por favor, preencha todos os campos corretamente.'
+        });
+
         return;
     }
 
     if (productList.some((product) => product.id !== productId && product.nome === editProductName)) {
-        alert("Já existe um produto com este nome.");
+
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro',
+            text: 'Já existe um produto com este nome.'
+        });
         return;
     }
 
@@ -172,7 +250,13 @@ function editProduct() {
 
                 $("#editProductModal").modal("hide");
             } else {
-                alert("Erro ao editar o produto.");
+
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro',
+                text: 'Erro ao editar o produto.'
+            });
+                
             }
         })
         .catch(error => console.error("Error editing product:", error));
@@ -182,7 +266,7 @@ function loadRemoveFormList() {
     const productListRemoveSelect = document.getElementById("productListRemove");
     productListRemoveSelect.innerHTML = "";
 
-    fetch('http://localhost/maracaju/database.php') // Substitua a URL pela correta
+    fetch('http://localhost/nioaque/database.php') // Substitua a URL pela correta
         .then(response => response.json())
         .then(data => {
             data.forEach((product) => {
@@ -207,7 +291,7 @@ function removeProduct() {
 
     const productIdsToRemove = selectedProducts.map((option) => parseInt(option.value, 10));
 
-    fetch('http://localhost/maracaju/database.php', { // Substitua a URL pela correta
+    fetch('http://localhost/nioaque/database.php', { // Substitua a URL pela correta
         method: "DELETE", // Use o método DELETE para enviar os IDs dos produtos a serem removidos
         headers: {
             "Content-Type": "application/json",
@@ -234,7 +318,52 @@ function removeProduct() {
 }
 
 //----------------------------------------------------------------------
-   
+function increaseQuantity(product) {
+    if (!isNaN(product.quantidade)) {
+        product.quantidade = parseInt(product.quantidade, 10) + 1;
+        updateProductQuantity(product);
+        updateQuantityInDatabase(product);
+    }
+}
+
+function decreaseQuantity(product) {
+    if (!isNaN(product.quantidade)) {
+        product.quantidade = parseInt(product.quantidade, 10) - 1;
+        if (product.quantidade < 0) {
+            product.quantidade = 0;
+        }
+        updateProductQuantity(product);
+        updateQuantityInDatabase(product);
+    }
+}
+
+function updateProductQuantity(product) {
+    const quantityDisplay = document.querySelector(`.product-grid [data-product-id="${product.id}"] .quantity-display`);
+    if (quantityDisplay) {
+        quantityDisplay.textContent = `Quantidade: ${product.quantidade}`;
+    }
+}
+
+function updateQuantityInDatabase(product) {
+    // Fazer uma chamada para atualizar a quantidade do produto no banco de dados
+    fetch(apiUrl, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        //body: JSON.stringify({ id: product.id, quantidade: product.quantidade }),
+        body: JSON.stringify(product), // Certifique-se de que o objeto do produto inclua o ID e a nova quantidade
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            console.log("Quantidade do produto atualizada no banco de dados.");
+        } else {
+            console.error("Erro ao atualizar a quantidade do produto no banco de dados.");
+        }
+    })
+    .catch(error => console.error("Error updating product quantity in the database:", error));
+}
 
 //----------------------------------------------------------------------
 

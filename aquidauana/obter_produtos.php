@@ -4,7 +4,7 @@
 $servername = "localhost";
 $username = "root"; // substitua pelo nome de usuário do seu banco de dados
 $password = ""; // substitua pela senha do seu banco de dados
-$dbname = "loja7";
+$dbname = "loja";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -23,7 +23,7 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
 
 // Consulta todos os produtos do banco de dados
-$sql = "SELECT * FROM produtos";
+$sql = "SELECT * FROM aquidauana";
 $result = $conn->query($sql);
 
 $products = array();

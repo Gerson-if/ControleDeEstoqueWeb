@@ -192,6 +192,47 @@
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: 20px;
     }
+        /* Estilos para os botões de aumento e diminuição */
+    .quantity-button {
+        font-size: 18px;
+        padding: 10px 20px;
+        border: none;
+        background-color: #7DBA68; /* Cor verde clara */
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.2s, transform 0.2s;
+        display: inline-block;
+    }
 
+    .quantity-button.increase-button {
+        background-color: #5C88DA; /* Cor azul clara para o botão de aumento */
+    }
+
+    .quantity-button:hover {
+        background-color: #6CA157; /* Cor mais escura ao passar o mouse */
+        transform: scale(1.05); /* Efeito de aumento no hover */
+    }
+
+    .quantity-button:active {
+        transform: scale(0.95); /* Efeito de responsividade ao clicar no botão */
+    }
+
+    /* Estilos para os avisos de sucesso e erro */
+    .showAlert {
+        padding: 10px 20px;
+        margin-bottom: 20px;
+        border-radius: 3px;
+        font-size: 14px;
+    }
+
+    .alert-success {
+        background-color: #8CC96B; /* Verde claro */
+        color: #fff;
+    }
+
+    .alert-error {
+        background-color: #FF6767; /* Vermelho claro */
+        color: #fff;
+    }
 
 </style>
