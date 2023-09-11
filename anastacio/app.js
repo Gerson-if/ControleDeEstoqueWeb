@@ -14,6 +14,10 @@ function loadProducts() {
                 const productCard = document.createElement("div");
                 productCard.classList.add("card", "mb-3");
 
+                //Adicionando o atributo "data-product-id" ao productCard
+                productCard.setAttribute("data-product-id", product.id);
+
+
                 const image = document.createElement("img");
                 image.src = product.imagem || "placeholder-image.jpg";
                 image.classList.add("card-img-top");
@@ -338,7 +342,7 @@ function decreaseQuantity(product) {
 }
 
 function updateProductQuantity(product) {
-    const quantityDisplay = document.querySelector(`.product-grid [data-product-id="${product.id}"] .quantity-display`);
+    const quantityDisplay = document.querySelector(`[data-product-id="${product.id}"] .card-text`);
     if (quantityDisplay) {
         quantityDisplay.textContent = `Quantidade: ${product.quantidade}`;
     }
@@ -358,6 +362,7 @@ function updateQuantityInDatabase(product) {
     .then(data => {
         if (data.success) {
             console.log("Quantidade do produto atualizada no banco de dados.");
+            updateProductQuantity(product); //Chamando a função depois de atualizar os dados do banco
         } else {
             console.error("Erro ao atualizar a quantidade do produto no banco de dados.");
         }
