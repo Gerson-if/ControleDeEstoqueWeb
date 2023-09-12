@@ -1,9 +1,9 @@
 <?php
 // esse arquivo e da 
 // Conexão com o banco de dados (substitua as informações pelas suas configurações)
-$servername = "localhost";
+$servername = "localhost:3306";
 $username = "root"; // substitua pelo nome de usuário do seu banco de dados
-$password = ""; // substitua pela senha do seu banco de dados
+$password = "root"; // substitua pela senha do seu banco de dados
 $dbname = "loja";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
