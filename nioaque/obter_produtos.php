@@ -23,7 +23,7 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
 
 // Consulta todos os produtos do banco de dados
-$sql = "SELECT * FROM produtos";
+$sql = "SELECT * FROM jardim";
 $result = $conn->query($sql);
 
 $products = array();

@@ -38,7 +38,7 @@ if ($method === "PUT") {
     }
 
     // Atualiza a quantidade do produto no banco de dados
-    $sql = "UPDATE produtos SET quantidade = " . $data["quantidade"] . " WHERE id = " . $data["id"];
+    $sql = "UPDATE jardim SET quantidade = " . $data["quantidade"] . " WHERE id = " . $data["id"];
     if ($conn->query($sql) === TRUE) {
         // Retorna uma resposta com código 200 (OK) e uma mensagem de sucesso
         http_response_code(200);
