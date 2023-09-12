@@ -1,7 +1,7 @@
 <?php
 
 // Conexão com o banco de dados (substitua as informações pelas suas configurações)
-$servername = "localhost";
+$servername = "localhost:3306";
 $username = "root";
 $password = "";
 $dbname = "loja";

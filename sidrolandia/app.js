@@ -157,7 +157,7 @@ function loadEditFormList() {
     productListSelect.innerHTML = '<option value="-1">Selecione um produto...</option>';
 
     // Fazer uma chamada de API para obter os dados dos produtos do servidor local
-    fetch('http://localhost/nioaque/database.php')
+    fetch('http://localhost/sidrolandia/database.php')
       .then(response => response.json())
       .then(data => {
         data.forEach((product) => {
@@ -269,7 +269,7 @@ function loadRemoveFormList() {
     const productListRemoveSelect = document.getElementById("productListRemove");
     productListRemoveSelect.innerHTML = "";
 
-    fetch('http://localhost/nioaque/database.php') // Substitua a URL pela correta
+    fetch('http://localhost/sidrolandia/database.php') // Substitua a URL pela correta
         .then(response => response.json())
         .then(data => {
             data.forEach((product) => {
@@ -294,7 +294,7 @@ function removeProduct() {
 
     const productIdsToRemove = selectedProducts.map((option) => parseInt(option.value, 10));
 
-    fetch('http://localhost/nioaque/database.php', { // Substitua a URL pela correta
+    fetch('http://localhost/sidrolandia/database.php', { // Substitua a URL pela correta
         method: "DELETE", // Use o método DELETE para enviar os IDs dos produtos a serem removidos
         headers: {
             "Content-Type": "application/json",
