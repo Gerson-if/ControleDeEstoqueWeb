@@ -77,7 +77,7 @@ CREATE TABLE nioaque (
 );
 
 CREATE TABLE aquidauana (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     nome VARCHAR(255) NOT NULL,
     quantidade INT NOT NULL,
     imagem VARCHAR(255),
@@ -86,7 +86,7 @@ CREATE TABLE aquidauana (
 );
 
 CREATE TABLE campogrande (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     nome VARCHAR(255) NOT NULL,
     quantidade INT NOT NULL,
     imagem VARCHAR(255),
