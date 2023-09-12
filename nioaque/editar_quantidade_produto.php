@@ -1,9 +1,9 @@
 <?php
 
 // Conexão com o banco de dados (substitua as informações pelas suas configurações)
-$servername = "localhost";
+$servername = "localhost:3306";
 $username = "root";
-$password = "";
+$password = "root";
 $dbname = "loja";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -38,7 +38,7 @@ if ($method === "PUT") {
     }
 
     // Atualiza a quantidade do produto no banco de dados
-    $sql = "UPDATE jardim SET quantidade = " . $data["quantidade"] . " WHERE id = " . $data["id"];
+    $sql = "UPDATE nioaque SET quantidade = " . $data["quantidade"] . " WHERE id = " . $data["id"];
     if ($conn->query($sql) === TRUE) {
         // Retorna uma resposta com código 200 (OK) e uma mensagem de sucesso
         http_response_code(200);
