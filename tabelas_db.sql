@@ -73,11 +73,23 @@ CREATE TABLE nioaque (
     PRIMARY KEY (id),
     UNIQUE KEY (nome)
 );
+
 CREATE TABLE aquidauana (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     quantidade INT NOT NULL,
-    imagem VARCHAR(255)
+    imagem VARCHAR(255),
+    PRIMARY KEY (id),
+    UNIQUE KEY (nome)
+);
+
+CREATE TABLE campogrande (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    quantidade INT NOT NULL,
+    imagem VARCHAR(255),
+    PRIMARY KEY (id),
+    UNIQUE KEY (nome)
 );
 
 
