@@ -1,5 +1,7 @@
 
+
 CREATE DATABASE loja;
+
 USE loja;
 
 CREATE TABLE produtos (
