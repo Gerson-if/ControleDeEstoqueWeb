@@ -9,3 +9,5 @@ esse sistema visa a criação e controle de estoque de produtos
  
 # xamp
 voce deve instalar o xamp server e descompcartar esses arquivos na pasta htdocs, logo depois de romver todos os arquivos da pasta htdocs do xamp, lembre fazer um bkp.
+# execução e teste
+ voce pode verificar se esta tudo certo abrindo digitando localhost no seu navegador, logo depois de iniciar o serviço do apache
